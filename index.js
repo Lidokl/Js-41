@@ -596,4 +596,70 @@ console.log('module 1.1');
 //   console.log(mango.blacklistedEmails); // ["poly@mail.com"]
 //   console.log(mango.isBlacklisted("mango@mail.com")); // false
 //   console.log(mango.isBlacklisted("poly@mail.com")); // true
-  
+  /* * * * * * * * * * * * * * * * *
+ * Pagination
+ * javascript page navigation
+ * * * * * * * * * * * * * * * * */
+
+var Pagination = {
+
+    code: '',
+
+    // --------------------
+    // Utility
+    // --------------------
+
+    // converting initialize data
+    Extend: function(data) {
+        data = data || {};
+        Pagination.size = data.size || 300;
+        Pagination.page = data.page || 1;
+        Pagination.step = data.step || 3;
+    },
+
+    // add pages by number (from [s] to [f])
+    Add: function(s, f) {
+        for (var i = s; i < f; i++) {
+            Pagination.code += '<a>' + i + '</a>';
+        }
+    },
+
+    // add last page with separator
+    Last: function() {
+        Pagination.code += '<i>...</i><a>' + Pagination.size + '</a>';
+    },
+
+    // add first page with separator
+    First: function() {
+        Pagination.code += '<a>1</a><i>...</i>';
+    },
+
+
+
+    // --------------------
+    // Handlers
+    // --------------------
+
+    // change page
+    Click: function() {
+        Pagination.page = +this.innerHTML;
+        Pagination.Start();
+    },
+
+    // previous page
+    Prev: function() {
+        Pagination.page--;
+        if (Pagination.page < 1) {
+            Pagination.page = 1;
+        }
+        Pagination.Start();
+    },
+
+    // next page
+    Next: function() {
+        Pagination.page++;
+        if (Pagination.page > Pagination.size) {
+            Pagination.page = Pagination.size;
+        }
+        Pagination.Start();
+    },
