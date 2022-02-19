@@ -1,4 +1,4 @@
-console.log('module 1.1');
+ console.log('module 1.1');
 // const products = [
 //     { name: "Radar", price: 1300, quantity: 4 },
 //     { name: "Scanner", price: 2700, quantity: 3 },
@@ -601,65 +601,227 @@ console.log('module 1.1');
  * javascript page navigation
  * * * * * * * * * * * * * * * * */
 
-var Pagination = {
+// var Pagination = {
 
-    code: '',
+//     code: '',
 
-    // --------------------
-    // Utility
-    // --------------------
+//     // --------------------
+//     // Utility
+//     // --------------------
 
-    // converting initialize data
-    Extend: function(data) {
-        data = data || {};
-        Pagination.size = data.size || 300;
-        Pagination.page = data.page || 1;
-        Pagination.step = data.step || 3;
-    },
+//     // converting initialize data
+//     Extend: function(data) {
+//         data = data || {};
+//         Pagination.size = data.size || 300;
+//         Pagination.page = data.page || 1;
+//         Pagination.step = data.step || 3;
+//     },
 
-    // add pages by number (from [s] to [f])
-    Add: function(s, f) {
-        for (var i = s; i < f; i++) {
-            Pagination.code += '<a>' + i + '</a>';
-        }
-    },
+//     // add pages by number (from [s] to [f])
+//     Add: function(s, f) {
+//         for (var i = s; i < f; i++) {
+//             Pagination.code += '<a>' + i + '</a>';
+//         }
+//     },
 
-    // add last page with separator
-    Last: function() {
-        Pagination.code += '<i>...</i><a>' + Pagination.size + '</a>';
-    },
+//     // add last page with separator
+//     Last: function() {
+//         Pagination.code += '<i>...</i><a>' + Pagination.size + '</a>';
+//     },
 
-    // add first page with separator
-    First: function() {
-        Pagination.code += '<a>1</a><i>...</i>';
-    },
+//     // add first page with separator
+//     First: function() {
+//         Pagination.code += '<a>1</a><i>...</i>';
+//     },
 
 
 
-    // --------------------
-    // Handlers
-    // --------------------
+//     // --------------------
+//     // Handlers
+//     // --------------------
 
-    // change page
-    Click: function() {
-        Pagination.page = +this.innerHTML;
-        Pagination.Start();
-    },
+//     // change page
+//     Click: function() {
+//         Pagination.page = +this.innerHTML;
+//         Pagination.Start();
+//     },
 
-    // previous page
-    Prev: function() {
-        Pagination.page--;
-        if (Pagination.page < 1) {
-            Pagination.page = 1;
-        }
-        Pagination.Start();
-    },
+//     // previous page
+//     Prev: function() {
+//         Pagination.page--;
+//         if (Pagination.page < 1) {
+//             Pagination.page = 1;
+//         }
+//         Pagination.Start();
+//     },
 
-    // next page
-    Next: function() {
-        Pagination.page++;
-        if (Pagination.page > Pagination.size) {
-            Pagination.page = Pagination.size;
-        }
-        Pagination.Start();
-    },
+//     // next page
+//     Next: function() {
+//         Pagination.page++;
+//         if (Pagination.page > Pagination.size) {
+//             Pagination.page = Pagination.size;
+//         }
+//         Pagination.Start();
+//     },
+
+
+// const x = 1;
+// const x = 'hello';
+// console.log(x);
+
+// let b = 20;
+
+// if (true) {
+//   console.log(b);
+//   let b = 10;
+// }
+
+// const x;
+// x = 1;
+// console.log(x);
+
+// const MAX = 10;
+// let amount = 0;
+
+// while (amount++ < MAX) {
+//   let sum = amount;
+// }
+
+// console.log(sum);
+
+
+// const person = {
+//     firstName: 'bob',
+//     showName() {
+//       console.log(this.firstName);
+//     },
+//   };
+  
+//   const foo = function(callback) {
+//     callback();
+//   };
+  
+//   foo(person.showName);
+
+
+// const person = {
+//     age: 10,
+//     setAge(newAge) {
+//       this.age = newAge;
+//     },
+//     refreshAge(userId) {
+//       fetchAgeFromDb(function(newAge) {
+//         this.setAge(newAge);
+//       });
+//     },
+//   };
+  
+//   function fetchAgeFromDb(cb) {
+//    cb(20);
+//   }
+  
+//   person.refreshAge();
+//   console.log(person.age);
+
+
+// const add = (a = 0, b = 10) => a + b;
+// const sum = add(10);
+// console.log(sum);
+
+
+// const sum = (...numbers) => numbers.reduce((acc, number) => acc + number, 2);
+// const answer = sum(1, 5, 20, 10);
+// console.log(answer);
+
+// const multiplyByValue = (value, base, ...numbers) => {
+//     return numbers.map(number => number * value + base);
+//   };
+//   console.log(multiplyByValue(2, 100, 1, 5, 20, 10));
+
+// const names = ['bob', ...['donald'], 'suzy', 'lacy', ...['richard', 'alex']];
+// console.log(names);
+
+// const min = Math.min(...[1, 5, -1, -10]);
+// console.log(min);
+
+// const name = 'bob';
+// const age = 20;
+// const obj = { name, age };
+
+// console.log(obj);
+
+
+// const confused = 'no';
+// const myKey = confused;
+
+// const obj = {
+//   [myKey]: false,
+// };
+
+// console.log(obj);
+
+// const piece = {
+//     x: 0,
+//     y: 0,
+//     move(x, y) {
+//       this.x = x;
+//       this.y = y;
+//     },
+//   };
+  
+//   piece.move(10, 10);
+//   console.log(piece);
+
+
+
+// const [first, , third] = 'hello sweet world'.split(' ');
+// console.log(first, third);
+
+// const { name, age, gender = 'm', hairColor: color } = {
+//     name: 'bob',
+//     age: 20,
+//     hairColor: 'blue',
+//    };
+   
+//    console.log(name, age, gender, color);
+
+
+// const dog = { name: 'Poly' };
+
+// function showDogName() {
+//   console.log(this.name);
+// }
+
+// const boundShowDogName = showDogName.bind(dog);
+
+// boundShowDogName();
+
+
+// const userA = {
+//     name: 'Mango',
+//     age: 5,
+//   };
+  
+//   const userB = {
+//     ...userA,
+//     age: 10,
+//     happy: true,
+//   };
+  
+//   console.log(userB);
+
+
+// const fn = (arr, val) => arr.filter(el => el > val);
+
+// console.log(fn([1, 2, 3, 4, 5], 3));
+
+
+// const fn = arr => arr.map(el => {
+//     const item = document.createElement('div');
+//     item.textContent = el;
+  
+//     return item;
+//    });
+  
+//   console.log(fn(['html', 'css', 'js', 'react']));
+
